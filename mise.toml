@@ -1,3 +1,11 @@
 [tools]
 node = "26"
 pnpm = "12.12.1"
+
+[tasks.setup]
+description = "Install wrangler from the lockfile"
+run = "pnpm install --frozen-lockfile"
+
+[tasks.publish]
+description = "Build uncloud and upload it to R2 (Eg. mise run publish latest)"
+run = "tools/publish-r2.sh"

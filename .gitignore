@@ -18,3 +18,4 @@ tags
 *test.yaml
 *flatcar_production_*
 .wrangler/
+node_modules/

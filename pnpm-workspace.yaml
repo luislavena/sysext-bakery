@@ -7,7 +7,11 @@ minimumReleaseAgeStrict: true
 # No dependency runs install scripts unless we list it here, after review,
 # with its exact version (Eg. esbuild@0.25.0: true), in a commit of its own.
 strictDepBuilds: true
-allowBuilds: {}
+allowBuilds:
+  # Denied: wrangler r2 object calls need neither postinstall (binary
+  # checks for local dev only).
+  esbuild@0.28.2: false
+  workerd@1.20261023.1: false
 
 # Fail if a package loses its provenance, and keep nested dependencies off
 # git URLs and tarballs.

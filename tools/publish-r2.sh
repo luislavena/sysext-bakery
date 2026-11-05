@@ -10,7 +10,7 @@
 #
 # Usage: tools/publish-r2.sh <version|latest>
 #
-# Needs: docker, mise, a 'wrangler login' session, and in .env:
+# Needs: docker, mise, a `pnpm exec wrangler login` session, and in .env:
 #   bakery_hub=<public hostname of the bucket>
 #   R2_BUCKET=<bucket> (optional)
 
@@ -28,7 +28,10 @@ R2_BUCKET="${R2_BUCKET:-hl-flatcar-07b9ab5a}"
 version="${1:?usage: $0 <version|latest>}"
 ext="uncloud"
 base_url="https://${bakery_hub}/extensions"
-wrangler=(mise exec -- pnpx wrangler@4.155.0)
+wrangler=(mise exec -- pnpm exec wrangler)
+
+# Wrangler version and its whole dependency tree come from pnpm-lock.yaml.
+mise exec -- pnpm install --frozen-lockfile --silent
 
 out="$(mktemp -d)"
 trap 'rm -rf "${out}"' EXIT

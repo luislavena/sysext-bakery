@@ -27,10 +27,10 @@ storage:
     - path: /opt/extensions/uncloud/uncloud-v0.21.0-x86-64.raw
       mode: 0644
       contents:
-        source: https://extensions.flatcar.org/extensions/uncloud-v0.21.0-x86-64.raw
+        source: https://flatcar.luislavena.dev/extensions/uncloud/uncloud-v0.21.0-x86-64.raw
     - path: /etc/sysupdate.uncloud.d/uncloud.conf
       contents:
-        source: https://extensions.flatcar.org/extensions/uncloud.conf
+        source: https://flatcar.luislavena.dev/extensions/uncloud.conf
     - path: /etc/sysupdate.d/noop.conf
       contents:
         source: https://extensions.flatcar.org/extensions/noop.conf

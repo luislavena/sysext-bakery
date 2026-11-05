@@ -1,0 +1,15 @@
+# Supply chain rules. Change only with a reason in the commit message.
+
+# Never install a version published less than 7 days ago (in minutes).
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: true
+
+# No dependency runs install scripts unless we list it here, after review,
+# with its exact version (Eg. esbuild@0.25.0: true), in a commit of its own.
+strictDepBuilds: true
+allowBuilds: {}
+
+# Fail if a package loses its provenance, and keep nested dependencies off
+# git URLs and tarballs.
+trustPolicy: no-downgrade
+blockExoticSubdeps: true
